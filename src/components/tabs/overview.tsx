@@ -11,19 +11,19 @@ const OverviewTab = () => {
                     <p className="text-[#60778a] text-sm font-normal leading-normal">Last 30 days</p>
                 </div>
             </div>
-            <div className="flex flex-wrap gap-4 p-4">
-                <div className="flex flex-1 flex-col">
+            <div className="flex flex-wrap gap-4 p-4 ">
+                <div className="flex flex-1 flex-col min-w-[300px]">
                     <ActivationChart />
                 </div>
-                <div className="flex flex-1 flex-col">
+                <div className="flex flex-1 flex-col min-w-[300px]">
                     <DailyActiveChart />
                 </div>
             </div>
             <div className="flex flex-wrap gap-4 p-4">
-                <div className="flex flex-1 flex-col">
+                <div className="flex flex-1 flex-col min-w-[300px]">
                     <DailyActiveChart />
                 </div>
-                <div className="flex flex-1 flex-col">
+                <div className="flex flex-1 flex-col min-w-[300px]">
                     <DailyActiveChart />
                 </div>
             </div>

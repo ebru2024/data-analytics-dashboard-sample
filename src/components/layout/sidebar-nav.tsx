@@ -63,7 +63,9 @@ export default function SidebarNav({ className, ...props }: SidebarNavProps) {
                     }}
                 >
                     {item.icon && <item.icon />}
-                    {item.title}
+                    <div className="hidden sm:block">
+                        {item.title}
+                    </div>
                 </a>
             ))}
         </nav>
