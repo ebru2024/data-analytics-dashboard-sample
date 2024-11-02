@@ -1,7 +1,7 @@
 "use client"
 
 import { TrendingUp } from "lucide-react"
-import { Bar, BarChart, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 
 import {
     Card,
@@ -18,49 +18,47 @@ import {
     ChartTooltipContent,
 } from "@/components/ui/chart"
 
-export const description = "A horizontal bar chart"
+export const description = "A bar chart"
 
 const chartData = [
-    { month: "Signed Up", desktop: 305 },
-    { month: "Setup", desktop: 73 },
-    { month: "Used", desktop: 186 },
-    { month: "Activated", desktop: 275 },
+    { month: "English", desktop: 400 },
+    { month: "French", desktop: 205 },
+    { month: "Spanish", desktop: 237 },
+    { month: "French", desktop: 156 },
+    { month: "Chinese", desktop: 73 },
+    { month: "Japanese", desktop: 214 },
 ]
 
 const chartConfig = {
     desktop: {
-        label: "Event",
+        label: "Desktop",
         color: "hsl(var(--chart-3))",
     },
 } satisfies ChartConfig
 
-export default function Chart() {
+export default function UserByLanguage() {
     return (
         <Card>
             <CardHeader>
-                <CardTitle>Activation</CardTitle>
-                <CardDescription>26.02%</CardDescription>
+                <CardTitle>User by language</CardTitle>
+                <CardDescription>January - June 2024</CardDescription>
             </CardHeader>
             <CardContent>
                 <ChartContainer config={chartConfig}>
-                    <BarChart
-                        accessibilityLayer
-                        data={chartData}
-                        layout="vertical"
-                    >
-                        <XAxis type="number" dataKey="desktop" hide />
-                        <YAxis
+                    <BarChart accessibilityLayer data={chartData}>
+                        <CartesianGrid vertical={false} />
+                        <XAxis
                             dataKey="month"
-                            type="category"
                             tickLine={false}
-                            tickMargin={0}
+                            tickMargin={10}
                             axisLine={false}
+                            tickFormatter={(value) => value.slice(0, 3)}
                         />
                         <ChartTooltip
                             cursor={false}
                             content={<ChartTooltipContent hideLabel />}
                         />
-                        <Bar dataKey="desktop" fill="currentColor" />
+                        <Bar dataKey="desktop" fill="var(--color-desktop)" />
                     </BarChart>
                 </ChartContainer>
             </CardContent>

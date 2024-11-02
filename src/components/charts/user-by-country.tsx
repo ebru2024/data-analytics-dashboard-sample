@@ -1,7 +1,7 @@
 "use client"
 
 import { TrendingUp } from "lucide-react"
-import { Bar, BarChart, CartesianGrid, Cell, LabelList } from "recharts"
+import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 
 import {
     Card,
@@ -18,51 +18,47 @@ import {
     ChartTooltipContent,
 } from "@/components/ui/chart"
 
-export const description = "A bar chart with negative values"
+export const description = "A bar chart"
 
 const chartData = [
-    { month: "January", visitors: 186 },
-    { month: "February", visitors: 205 },
-    { month: "March", visitors: -207 },
-    { month: "April", visitors: 173 },
-    { month: "May", visitors: -209 },
-    { month: "June", visitors: 214 },
+    { month: "US", desktop: 186 },
+    { month: "India", desktop: 305 },
+    { month: "UK", desktop: 237 },
+    { month: "Canada", desktop: 73 },
+    { month: "Australia", desktop: 209 },
+    { month: "Germany", desktop: 214 },
 ]
 
 const chartConfig = {
-    visitors: {
-        label: "Visitors",
+    desktop: {
+        label: "Count",
+        color: "hsl(var(--chart-2))",
     },
 } satisfies ChartConfig
 
-export default function Component() {
+export default function UserByCountry() {
     return (
         <Card>
             <CardHeader>
-                <CardTitle>Bar Chart - Negative</CardTitle>
+                <CardTitle>User by country</CardTitle>
                 <CardDescription>January - June 2024</CardDescription>
             </CardHeader>
             <CardContent>
                 <ChartContainer config={chartConfig}>
                     <BarChart accessibilityLayer data={chartData}>
                         <CartesianGrid vertical={false} />
+                        <XAxis
+                            dataKey="month"
+                            tickLine={false}
+                            tickMargin={10}
+                            axisLine={false}
+                            tickFormatter={(value) => value.slice(0, 3)}
+                        />
                         <ChartTooltip
                             cursor={false}
-                            content={<ChartTooltipContent hideLabel hideIndicator />}
+                            content={<ChartTooltipContent hideLabel />}
                         />
-                        <Bar dataKey="visitors">
-                            <LabelList position="top" dataKey="month" fillOpacity={1} />
-                            {chartData.map((item) => (
-                                <Cell
-                                    key={item.month}
-                                    fill={
-                                        item.visitors > 0
-                                            ? "hsl(var(--chart-1))"
-                                            : "hsl(var(--chart-2))"
-                                    }
-                                />
-                            ))}
-                        </Bar>
+                        <Bar dataKey="desktop" fill="var(--color-desktop)" />
                     </BarChart>
                 </ChartContainer>
             </CardContent>

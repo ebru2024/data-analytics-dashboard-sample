@@ -12,7 +12,7 @@ export default function Layout({ children, onPathnameChange }: { children: React
                 <aside className="mx-2 lg:-mx-4 lg:w-1/5 p-5">
                     <SidebarNav onPathnameChange={onPathnameChange} />
                 </aside>
-                <div className="flex flex-1 flex-col lg:flex-row">
+                <div className="flex flex-1 flex-col lg:flex-row h-full">
                     <Separator orientation="vertical" />
                     {children}
                 </div>
