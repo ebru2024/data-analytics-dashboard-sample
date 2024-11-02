@@ -25,7 +25,7 @@ const OverviewTab = () => {
                     <p className="text-[#078838] text-base font-medium leading-normal">+8%</p>
                 </div>
                 <div className="flex min-w-[100px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#dbe1e6]">
-                    <p className="text-[#111518] text-base font-medium leading-normal">Events/Minute</p>
+                    <p className="text-[#111518] text-base font-medium leading-normal">Events-Minute</p>
                     <p className="text-[#111518] tracking-light text-2xl font-bold leading-tight">2,380</p>
                     <p className="text-[#078838] text-base font-medium leading-normal">+4%</p>
                 </div>
