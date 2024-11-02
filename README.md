@@ -2,7 +2,7 @@
 
 This project is an example of a data analytics dashboard built with React using Vite as the build tool. It features a clean, responsive design powered by Tailwind CSS and ShadCN for seamless component styling. This dashboard serves as a template for analyzing and visualizing data in an intuitive and interactive format.
 
-Live sample:
+Live sample: https://data-analytics-dashboard-ex.web.app/
 
 ## Technologies Used
 
